@@ -36,8 +36,9 @@ $sScriptVersion = "0.1"
 #Start script transcript
 start-transcript -path /home/pi/Tesla/log/Transcript.txt
 
+
+
 #Script variables
-$carname = "Tesla"
 $outsidetemperature = "3"
 
 # Capture credentials
@@ -52,6 +53,12 @@ Connect-Tesla -Credential $Cred -NoPersist
 #Wake up vehicle
 set-tesla -Command wake_up
 write-host "$carname has woken up!"
+
+#Get carname
+$VehicleState = get-tesla -Command vehicle_state
+$Carname = $VehicleState.vehicle_name
+Write-Host = "This car's name is $Carname"
+
 
 if ($temperature){
 #Get Tesla outside Temperature
