@@ -7,10 +7,6 @@
   Sets the temperature of the Tesla using the conditions in this script
 .PARAMETER stopcharge
   Stops charging the car and unlocks the charging port
-.PARAMETER frunk
-  Opens the Frunk
-.PARAMETER trunk
-  Opens the Trunk
 
 .NOTES
   Version:        0.1
