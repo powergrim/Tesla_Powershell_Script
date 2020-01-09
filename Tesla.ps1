@@ -50,12 +50,12 @@ Connect-Tesla -Credential $Cred -NoPersist
 
 #Wake up vehicle
 set-tesla -Command wake_up
-write-host "$carname has woken up!"
 
 #Get carname
 $VehicleState = get-tesla -Command vehicle_state
 $Carname = $VehicleState.vehicle_name
-Write-Host = "This car's name is $Carname"
+Write-Host "This car's name is $Carname"
+write-host "$carname has woken up!"
 
 if ($temperature){
 #Get Tesla outside Temperature
@@ -66,7 +66,7 @@ if ($temperature){
 #Based on temperature switch on the conditioning
 if($outsidetemp -le "3"){
     set-tesla -Command auto_conditioning_start
-    Write-Host "$carname is now heating up"
+    Write-Host "Outside temperature is lower than $outsidetemp degrees, therefore $carname is now heating up"
     }
     else{
         Write-host "Outside temperature exceeds $outsidetemperature degrees Celsius, therefore the heating is not started"
